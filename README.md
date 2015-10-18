@@ -5,7 +5,7 @@
 </div>
 <br>
 
-> Sushi theme for [Oh My Fish][omf-link].
+> 🍣 Sushi theme for [Oh My Fish][omf-link].
 
 ## Install
 
