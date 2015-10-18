@@ -13,13 +13,6 @@ function fish_prompt
 
 	if git_is_repo
 
-		# λ														Sushi [07:12:20]
-		# (master) λ											Sushi [07:12:20]
-		# (master+4) λ											Sushi [07:12:20]
-		# (*master+4) λ											Sushi [07:12:20]
-		# ^(*master+4) λ										Sushi [07:12:20]
-
-
 		set -l branch			(git_branch_name)
 		set -l remote			"origin"
 
