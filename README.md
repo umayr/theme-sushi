@@ -5,10 +5,9 @@
 </div>
 <br>
 
-> sushi theme for [Oh My Fish][omf-link].
+> Sushi theme for [Oh My Fish][omf-link].
 
 ## Install
-
 
 ```fish
 $ omf u sushi
@@ -16,8 +15,15 @@ $ omf u sushi
 
 ## Features
 
-* Lorem ipsum dolor sit amet.
-* Consectetur adipisicing elit.
+* Minimal Prompt.
+* Git Support.
+* Displays `^` when there are stashed changes.
+* Displays `*` when there are any changes to files already being tracked in the repo.
+* Displays current branch name.
+* Branch name color changes when there are staged changes.
+* Displays number of commits current branch is ahead/behind from origin.
+* By default it shows only the name of the current directory but it provides a flag `theme_complete_path` to display abbreviated current working directory instead.
+* Displays Time.
 
 ## Screenshot
 
@@ -27,12 +33,12 @@ $ omf u sushi
 
 # License
 
-[MIT][mit] © [{{USER}}][author] et [al][contributors]
+[MIT][mit] © [umayr][author] et [al][contributors]
 
 
 [mit]:            http://opensource.org/licenses/MIT
-[author]:         http://github.com/{{USER}}
-[contributors]:   https://github.com/{{USER}}/sushi/graphs/contributors
+[author]:         http://github.com/umayr
+[contributors]:   https://github.com/umayr/sushi/graphs/contributors
 [omf-link]:       https://www.github.com/oh-my-fish/oh-my-fish
 
 [license-badge]:  https://img.shields.io/badge/license-MIT-007EC7.svg?style=flat-square
