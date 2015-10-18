@@ -1,14 +1,9 @@
 set -g CMD_DURATION 0
 
 function yellow;	    set_color -o b58900; end
-function orange;    	set_color -o cb4b16; end
 function red;       	set_color -o d30102; end
-function magenta;   	set_color -o d33682; end
-function violet;    	set_color -o 6c71c4; end
-function blue;      	set_color -o 268bd2; end
 function cyan;      	set_color -o 2aa198; end
-function green;     	set_color -o 859900; end
-function tmp;			set_color -o fdf6e3; end
+function white;			set_color -o fdf6e3; end
 function dim;			set_color -o 333333; end
 function off;			set_color -o normal; end
 
@@ -32,12 +27,12 @@ function fish_prompt
 		set -l ahead_count		(echo (command git rev-list $remote/$branch..$branch ^/dev/null | wc -l | tr -d " "))
 		
 		if git_is_stashed
-			echo -n -s (tmp)"^"(off)
+			echo -n -s (white)"^"(off)
 		end
 
 		echo -n -s (red)"("(off)
 			if git_is_dirty
-				printf (tmp)"*"(off)
+				printf (white)"*"(off)
 			end
 
 			if git_is_staged
@@ -47,11 +42,11 @@ function fish_prompt
 			end
 
 			if test $ahead_count -ne 0
-				echo -n -s (tmp)" +"$ahead_count(off)
+				echo -n -s (white)" +"$ahead_count(off)
 			end
 
 			if test $behind_count -ne 0
-				echo -n -s (tmp)" -"$behind_count(off)
+				echo -n -s (white)" -"$behind_count(off)
 			end
 		echo -n -s (red)") "(off)
 	end
