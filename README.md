@@ -10,7 +10,7 @@
 ## Install
 
 ```fish
-$ omf u sushi
+$ omf install sushi
 ```
 
 ## Features
