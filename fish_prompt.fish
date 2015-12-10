@@ -4,9 +4,9 @@ function fish_prompt
 
 	if git_is_repo
 
-		set -l branch			(git_branch_name)
+		set -l branch			(git_branch_name ^/dev/null)
 		set -l remote			"origin"
-
+        set -l ref              (git show-ref --head --abbrev | awk '{print substr($0,0,7)}' | sed -n 1p)
 		
 		if git_is_stashed
 			echo -n -s (white)"^"(off)
@@ -16,14 +16,17 @@ function fish_prompt
 			if git_is_dirty
 				printf (white)"*"(off)
 			end
+            if command git symbolic-ref HEAD > /dev/null ^/dev/null
+    			if git_is_staged
+	    			printf (cyan)"$branch"(off)
+		    	else
+			    	printf (yellow)"$branch"(off)
+    			end
+            else
+                printf (dim)"$ref"(off)
+            end
 
-			if git_is_staged
-				printf (cyan)"$branch"(off)
-			else
-				printf (yellow)"$branch"(off)
-			end
-
-			if command git remote | grep $remote > /dev/null
+			if command git remote | grep $remote > /dev/null ^/dev/null
 
 				set -l behind_count		(echo (command git rev-list $branch..$remote/$branch ^/dev/null | wc -l | tr -d " "))
 				set -l ahead_count		(echo (command git rev-list $remote/$branch..$branch ^/dev/null | wc -l | tr -d " "))
