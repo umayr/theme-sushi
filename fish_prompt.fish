@@ -5,7 +5,6 @@ function fish_prompt
 	if git_is_repo
 
 		set -l branch			(git_branch_name ^/dev/null)
-		set -l remote			"origin"
 		set -l ref			(git show-ref --head --abbrev | awk '{print substr($0,0,7)}' | sed -n 1p)
 		
 		if git_is_stashed
@@ -28,9 +27,13 @@ function fish_prompt
 			printf (dim)"$ref"(off)
 		end
 
-		if command git remote | grep $remote > /dev/null ^/dev/null
+		for remote in (git remote)
 			set -l behind_count		(echo (command git rev-list $branch..$remote/$branch ^/dev/null | wc -l | tr -d " "))
 			set -l ahead_count		(echo (command git rev-list $remote/$branch..$branch ^/dev/null | wc -l | tr -d " "))
+
+			if test $ahead_count -ne 0; or test $behind_count -ne 0; and test (git remote | wc -l) -gt 1
+				echo -n -s " "(orange)$remote(off)
+			end
 
 			if test $ahead_count -ne 0
 				echo -n -s (white)" +"$ahead_count(off)

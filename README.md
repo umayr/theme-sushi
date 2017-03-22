@@ -21,7 +21,7 @@ $ omf install sushi
 * Displays `*` when there are any changes to files already being tracked in the repo.
 * Displays current branch name.
 * Branch name color changes when there are staged changes.
-* Displays number of commits current branch is ahead/behind from origin.
+* Displays number of commits current branch is ahead/behind in each remote.
 * By default it shows only the name of the current directory but it provides a flag `theme_complete_path` to display abbreviated current working directory instead.
 * Displays Time.
 

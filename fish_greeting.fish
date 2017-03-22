@@ -1,5 +1,6 @@
 set -g CMD_DURATION 0
 
+function orange;		set_color -o ee5819; end
 function yellow;		set_color -o b58900; end
 function red;			set_color -o d30102; end
 function cyan;			set_color -o 2aa198; end
