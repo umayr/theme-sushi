@@ -1,5 +1,5 @@
 function orange
-    set_color -o ee5819
+    set_color -o ffb86c
 end
 
 function yellow
@@ -7,19 +7,35 @@ function yellow
 end
 
 function red
-    set_color -o d30102
+    set_color -o ff5555
 end
 
 function cyan
-    set_color -o 2aa198
+    set_color -o 8be9fd
 end
 
 function white
-    set_color -o fdf6e3
+    set_color -o f8f8f2
+end
+
+function green
+    set_color -o 50fa7b
+end
+
+function pink
+    set_color -o ff79c6
+end
+
+function purple
+    set_color -o bd93f9
+end
+
+function dark_purple
+    set_color -o 6272a4
 end
 
 function dim
-    set_color -o 4f4f4f
+    set_color -o 44475a
 end
 
 function off
@@ -98,7 +114,7 @@ function fish_right_prompt
 		end
 	end
 
-	printf (yellow)"("(dim)$cwd(yellow)") "(off)
-	printf (dim)(date +%H(yellow):(dim)%M(yellow):(dim)%S)(off)
+	printf (pink)"("(dim)$cwd(pink)") "(off)
+	printf (dim)(date +%H(pink):(dim)%M(pink):(dim)%S)(off)
 
 end

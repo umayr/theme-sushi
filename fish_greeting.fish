@@ -1,7 +1,7 @@
 set -g CMD_DURATION 0
 
 function dim
-    set_color -o 4f4f4f
+    set_color -o 644475
 end
 
 function off

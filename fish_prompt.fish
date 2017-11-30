@@ -10,7 +10,7 @@ function fish_prompt
 			echo -n -s (white)"^"(off)
 		end
 
-		echo -n -s (red)"("(off)
+		echo -n -s (purple)"("(off)
 		
 		if git::is_dirty
 			printf (white)"*"(off)
@@ -18,9 +18,9 @@ function fish_prompt
 
 		if command git symbolic-ref HEAD > /dev/null ^/dev/null
 			if git::is_staged
-				printf (cyan)"$branch"(off)
+				printf (green)"$branch"(off)
 			else
-				printf (yellow)"$branch"(off)
+				printf (cyan)"$branch"(off)
 			end
 		else
 			printf (dim)"$ref"(off)
@@ -31,7 +31,7 @@ function fish_prompt
 			set -l ahead_count (echo (command git rev-list $remote/$branch..$branch ^/dev/null | wc -l | tr -d " "))
 
 			if test $ahead_count -ne 0; or test $behind_count -ne 0; and test (git remote | wc -l) -gt 1
-				echo -n -s " "(orange)$remote(off)
+				echo -n -s " "(dark_purple)$remote(off)
 			end
 
 			if test $ahead_count -ne 0
@@ -43,11 +43,11 @@ function fish_prompt
 			end
 		end
 
-		echo -n -s (red)") "(off)
+		echo -n -s (purple)") "(off)
 	end
 
 	if test "$code" = 0 
-		echo -n -s (red)"$symbol"(off)
+		echo -n -s (purple)"$symbol"(off)
 	else
 		echo -n -s (dim)"$symbol"(off)
 	end	
