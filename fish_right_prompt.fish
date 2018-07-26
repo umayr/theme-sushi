@@ -31,7 +31,7 @@ function git::is_repo
 end
 
 function git::ahead -a ahead behind diverged none
-	not git_is_repo; and return
+	not git::is_repo; and return
 
 	set -l commit_count (command git rev-list --count --left-right "@{upstream}...HEAD" ^/dev/null)
 
@@ -50,36 +50,36 @@ function git::ahead -a ahead behind diverged none
 end
 
 function git::branch_name
-	git_is_repo; and begin
+	git::is_repo; and begin
 		command git symbolic-ref --short HEAD ^/dev/null;
 		or command git show-ref --head -s --abbrev | head -n1 ^/dev/null
 	end
 end
 
 function git::is_dirty
-	git_is_repo; and not command git diff --no-ext-diff --quiet --exit-code
+	git::is_repo; and not command git diff --no-ext-diff --quiet --exit-code
 end
 
 function git::is_staged
-	git_is_repo; and begin
+	git::is_repo; and begin
 		not command git diff --cached --no-ext-diff --quiet --exit-code
 	end
 end
 
 function git::is_stashed
-	git_is_repo; and begin
+	git::is_repo; and begin
 		command git rev-parse --verify --quiet refs/stash >/dev/null
 	end
 end
 
 function git::is_touched
-	git_is_repo; and begin
+	git::is_repo; and begin
 		test -n (echo (command git status --porcelain))
 	end
 end
 
 function git::untracked
-	git_is_repo; and begin
+	git::is_repo; and begin
 		command git ls-files --other --exclude-standard
 	end
 end
