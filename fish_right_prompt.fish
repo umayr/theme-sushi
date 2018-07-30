@@ -1,3 +1,4 @@
+# Colors
 function orange
     set_color -o ee5819
 end
@@ -26,6 +27,7 @@ function off
     set_color -o normal
 end
 
+# Git
 function git::is_repo
 	test -d .git; or command git rev-parse --git-dir >/dev/null ^/dev/null
 end
@@ -84,6 +86,19 @@ function git::untracked
 	end
 end
 
+# Terraform
+
+# Test whether this is a terraform directory by finding .tf files
+function terraform::directory
+	command find . -name '*.tf' >/dev/null ^/dev/null -maxdepth 0 
+end
+
+function terraform::workspace
+	terraform::directory; and begin
+		test -e .terraform/environment
+	end
+end
+
 function fish_right_prompt
 
 	if test "$theme_complete_path" = "yes"
@@ -96,6 +111,11 @@ function fish_right_prompt
 			set parent_root_folder (dirname $root_folder)
 			set cwd (echo $PWD | sed -e "s|$parent_root_folder/||")
 		end
+	end
+
+	if terraform::workspace
+		set terraform_workspace_name (command cat .terraform/environment)
+		printf (yellow)"("(dim)$terraform_workspace_name(yellow)") "(off)
 	end
 
 	printf (yellow)"("(dim)$cwd(yellow)") "(off)
