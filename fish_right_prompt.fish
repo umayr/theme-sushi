@@ -90,7 +90,7 @@ end
 
 # Test whether this is a terraform directory by finding .tf files
 function terraform::directory
-	command find . -name '*.tf' >/dev/null ^/dev/null -maxdepth 0 
+	command find . -name '*.tf' >/dev/null ^/dev/null -maxdepth 0
 end
 
 function terraform::workspace
