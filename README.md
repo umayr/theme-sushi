@@ -30,7 +30,7 @@ $ omf install sushi
 
 ![Screenshot for Sushi Theme](https://camo.githubusercontent.com/98de9526e48e3ad03e761893c539891563e41276/68747470733a2f2f6769746875622d636c6f75642e73332e616d617a6f6e6177732e636f6d2f6173736574732f333037313934382f31303536353038362f66383463326432632d373565312d313165352d383234382d3364386262623965636565392e706e67)
 
-[[images/terraform_workspaces.png]]
+![Screenshot of Sushi Theme with Terraform Workspaces](https://github.com/AkhterAli/theme-sushi/blob/terraform-workspace-name/images/terraform_workspaces.png)
 
 ## License
 
