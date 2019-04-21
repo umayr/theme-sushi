@@ -36,6 +36,8 @@ $ omf install sushi
 
 ![Screenshot of Sushi Theme with Kubernetes](https://user-images.githubusercontent.com/1866448/56770256-c09f8f00-67b3-11e9-9bcf-d654243e881c.png)
 
+![Screenshot of Sushi Theme with SSH](https://user-images.githubusercontent.com/14050128/64432134-54278b80-d0d5-11e9-93f0-f3ef451af906.png)
+
 ## License
 
 [MIT][mit] © [Umayr Shahid][author] et [al][contributors]

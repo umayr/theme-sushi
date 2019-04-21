@@ -1,6 +1,13 @@
 function fish_prompt
 	set -l symbol "λ "
 	set -l code $status
+	set -l ssh $ssh_client
+
+	if set -q ssh
+		set -l host (hostname -s)
+		set -l who (whoami)
+		echo -n -s (red)"("(cyan)"$who"(red)":"(cyan)"$host"(red)") "(off)
+	end
 
 	if git::is_repo
 		set -l branch (git::branch_name ^/dev/null)
