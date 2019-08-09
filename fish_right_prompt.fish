@@ -123,7 +123,7 @@ function fish_right_prompt
 		end
 	end
 
-	command -sq kubectl; and begin
+	command -sq kubectl; and k8s::current_context 2>/dev/null; and begin
 		printf (yellow)"("(dim)(k8s::current_context)"/"(k8s::current_namespace)(yellow)") "(off)
 	end
 
