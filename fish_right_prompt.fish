@@ -86,6 +86,7 @@ function git::untracked
 	end
 end
 
+
 # Kubernetes
 
 function k8s::default_config_exists
@@ -95,6 +96,7 @@ end
 function k8s::var_config_exists
 	test -e $KUBECONFIG
 end
+
 
 # Terraform
 
@@ -123,6 +125,7 @@ function fish_right_prompt
 		end
 	end
 
+
 	# k8s prompt
 
 	if k8s::default_config_exists; or k8s::var_config_exists
@@ -135,6 +138,7 @@ function fish_right_prompt
 			printf (yellow)"("(dim)$kube_current_context(yellow)") "(off)
 		end
 	end
+  
 
 	# Terraform prompt
 
