@@ -86,6 +86,18 @@ function git::untracked
 	end
 end
 
+
+# Kubernetes
+
+function k8s::default_config_exists
+	test -e $HOME/.kube/config
+end
+
+function k8s::var_config_exists
+	test -e $KUBECONFIG
+end
+
+
 # Terraform
 
 # Test whether this is a terraform directory by finding .tf files
@@ -112,6 +124,23 @@ function fish_right_prompt
 			set cwd (echo $PWD | sed -e "s|$parent_root_folder/||")
 		end
 	end
+
+
+	# k8s prompt
+
+	if k8s::default_config_exists; or k8s::var_config_exists
+		set kube_current_context (command kubectl config current-context)
+		set namespacetest (command kubectl config view --minify -o jsonpath='{.contexts[0].context.namespace}')
+
+		if test -n "$namespacetest"
+			printf (yellow)"("(dim)$kube_current_context"/"$namespacetest(yellow)") "(off)
+		else
+			printf (yellow)"("(dim)$kube_current_context(yellow)") "(off)
+		end
+	end
+  
+
+	# Terraform prompt
 
 	if terraform::workspace
 		set terraform_workspace_name (command cat .terraform/environment)

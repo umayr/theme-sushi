@@ -25,12 +25,16 @@ $ omf install sushi
 * Displays number of commits current branch is ahead/behind in each remote.
 * By default it shows only the name of the current directory but it provides a flag `theme_complete_path` to display abbreviated current working directory instead.
 * Displays Time.
+* Support for Terraform
+* Support for Kubernetes
 
 ## Screenshot
 
 ![Screenshot for Sushi Theme](https://camo.githubusercontent.com/98de9526e48e3ad03e761893c539891563e41276/68747470733a2f2f6769746875622d636c6f75642e73332e616d617a6f6e6177732e636f6d2f6173736574732f333037313934382f31303536353038362f66383463326432632d373565312d313165352d383234382d3364386262623965636565392e706e67)
 
 ![Screenshot of Sushi Theme with Terraform Workspaces](https://user-images.githubusercontent.com/7011993/43540375-907eeca8-9595-11e8-8af9-92183a3ad997.png)
+
+![Screenshot of Sushi Theme with Kubernetes](https://user-images.githubusercontent.com/1866448/56770256-c09f8f00-67b3-11e9-9bcf-d654243e881c.png)
 
 ## License
 
