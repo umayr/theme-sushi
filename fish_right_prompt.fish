@@ -126,7 +126,7 @@ function fish_right_prompt
 	# k8s prompt
 
 	if k8s::default_config_exists; or k8s::var_config_exists
-		set kube_current_context (command kubectl config current-context 2>1 /dev/null)
+		set kube_current_context (command kubectl config current-context 2>&1 /dev/null)
 
 		if test -n "$kube_current_context"
 			set namespacetest (command kubectl config view --minify -o jsonpath='{.contexts[0].context.namespace}')
