@@ -1,9 +1,8 @@
 function fish_prompt
 	set -l symbol "λ "
 	set -l code $status
-	set -l ssh $ssh_client
 
-	if set -q ssh
+	if test -n "$ssh_client"
 		set -l host (hostname -s)
 		set -l who (whoami)
 		echo -n -s (red)"("(cyan)"$who"(red)":"(cyan)"$host"(red)") "(off)
@@ -12,13 +11,13 @@ function fish_prompt
 	if git::is_repo
 		set -l branch (git::branch_name ^/dev/null)
 		set -l ref (git show-ref --head --abbrev | awk '{print substr($0,0,7)}' | sed -n 1p)
-		
+
 		if git::is_stashed
 			echo -n -s (white)"^"(off)
 		end
 
 		echo -n -s (red)"("(off)
-		
+
 		if git::is_dirty
 			printf (white)"*"(off)
 		end
@@ -53,10 +52,10 @@ function fish_prompt
 		echo -n -s (red)") "(off)
 	end
 
-	if test "$code" = 0 
+	if test "$code" = 0
 		echo -n -s (red)"$symbol"(off)
 	else
 		echo -n -s (dim)"$symbol"(off)
-	end	
+	end
 
 end
