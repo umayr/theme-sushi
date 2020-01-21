@@ -88,12 +88,12 @@ end
 
 # Kubernetes
 
-function k8s::current_context
-    command kubectl config current-context
+function k8s::default_config_exists
+	test -e $HOME/.kube/config
 end
 
-function k8s::current_namespace
-    command kubectl config view --minify -o jsonpath='{.contexts[0].context.namespace}'
+function k8s::var_config_exists
+	test -e $KUBECONFIG
 end
 
 # Terraform
@@ -123,9 +123,22 @@ function fish_right_prompt
 		end
 	end
 
-	command -sq kubectl; and k8s::current_context 2>/dev/null; and begin
-		printf (yellow)"("(dim)(k8s::current_context)"/"(k8s::current_namespace)(yellow)") "(off)
+	# k8s prompt
+
+	if k8s::default_config_exists; or k8s::var_config_exists
+		set kube_current_context (command kubectl config current-context 2>&1 /dev/null)
+
+		if test -n "$kube_current_context"
+			set namespacetest (command kubectl config view --minify -o jsonpath='{.contexts[0].context.namespace}')
+			if test -n "$namespacetest"
+				printf (yellow)"("(dim)$kube_current_context"/"$namespacetest(yellow)") "(off)
+			else
+				printf (yellow)"("(dim)$kube_current_context(yellow)") "(off)
+			end
+		end
 	end
+
+	# Terraform prompt
 
 	if terraform::workspace
 		set terraform_workspace_name (command cat .terraform/environment)
