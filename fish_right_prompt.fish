@@ -34,7 +34,7 @@ function dark_purple
     set_color -o 6272a4
 end
 
-function dim
+function grey
     set_color -o 44475a
 end
 
@@ -101,7 +101,6 @@ function git::untracked
 end
 
 function fish_right_prompt
-
 	if test "$theme_complete_path" = "yes"
 		set cwd (prompt_pwd)
 	else
@@ -114,7 +113,6 @@ function fish_right_prompt
 		end
 	end
 
-	printf (pink)"("(dim)$cwd(pink)") "(off)
-	printf (dim)(date +%H(pink):(dim)%M(pink):(dim)%S)(off)
-
+	printf (pink)"("(grey)$cwd(pink)") "(off)
+	printf (grey)(date +%H(pink):(grey)%M(pink):(grey)%S)(off)
 end
