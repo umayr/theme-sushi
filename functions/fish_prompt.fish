@@ -1,3 +1,5 @@
+_load_sushi
+
 function fish_prompt
 	set -l symbol "λ "
 	set -l code $status
@@ -57,5 +59,4 @@ function fish_prompt
 	else
 		echo -n -s (dim)"$symbol"(off)
 	end
-
 end
