@@ -16,17 +16,17 @@ function fish_right_prompt
 	command -sq kubectl; and k8s::current_context >/dev/null 2>/dev/null; and begin
 		set -l k8s_namespace (k8s::current_namespace)
 		if test -z "$k8s_namespace"
-			printf (yellow)"("(dim)(k8s::current_context)(yellow)") "(off)
+			printf (pink)"("(grey)(k8s::current_context)(pink)") "(off)
 		else
-			printf (yellow)"("(dim)(k8s::current_context)"/$k8s_namespace"(yellow)") "(off)
+			printf (pink)"("(grey)(k8s::current_context)"/$k8s_namespace"(pink)") "(off)
 		end
 	end
 
 	if terraform::workspace
 		set terraform_workspace_name (command cat .terraform/environment)
-		printf (yellow)"("(dim)$terraform_workspace_name(yellow)") "(off)
+		printf (pink)"("(grey)$terraform_workspace_name(pink)") "(off)
 	end
 
-	printf (yellow)"("(dim)$cwd(yellow)") "(off)
-	printf (dim)(date +%H(yellow):(dim)%M(yellow):(dim)%S)(off)
+	printf (pink)"("(grey)$cwd(pink)") "(off)
+    printf (grey)(date +%H(pink):(grey)%M(pink):(grey)%S)(off)
 end
