@@ -26,9 +26,9 @@ function fish_prompt
 
 		if command git symbolic-ref HEAD > /dev/null ^/dev/null
 			if git::is_staged
-				printf (cyan)"$branch"(off)
+				printf (green)"$branch"(off)
 			else
-				printf (yellow)"$branch"(off)
+				printf (cyan)"$branch"(off)
 			end
 		else
 			printf (dim)"$ref"(off)
