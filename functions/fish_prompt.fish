@@ -4,7 +4,7 @@ function fish_prompt
 	set -l symbol "λ "
 	set -l code $status
 
-	if test -n "$ssh_client"
+	if test -n "$SSH_CLIENT"
 		set -l host (hostname -s)
 		set -l who (whoami)
 		echo -n -s (red)"("(cyan)"$who"(red)":"(cyan)"$host"(red)") "(off)
