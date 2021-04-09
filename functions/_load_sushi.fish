@@ -35,6 +35,10 @@ function dark_purple
     set_color -o 6272a4
 end
 
+function dim
+    set_color -o 4f4f4f
+end
+
 function grey
     set_color -o 44475a
 end
