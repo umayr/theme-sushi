@@ -9,8 +9,10 @@
 
 ## Install
 
-```fish
+```bash
 $ omf install sushi
+# or
+$ fisher umayr/sushi
 ```
 
 ## Features
@@ -27,6 +29,17 @@ $ omf install sushi
 * Displays Time.
 * Support for Terraform
 * Support for Kubernetes
+* Asynchronous prompts
+
+## Use asynchronous prompts
+This theme supports (optional) async prompts using [`acomagu/fish-async-prompt`](https://github.com/acomagu/fish-async-prompt) plugin, which gives you access to terminal without waiting for theme to completely render.
+
+To install the plugin,
+```bash
+$ omf install https://github.com/acomagu/fish-async-prompt
+# or
+$ fisher acomagu/fish-async-prompt
+```
 
 ## Screenshot
 

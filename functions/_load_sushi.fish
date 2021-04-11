@@ -1,30 +1,34 @@
+# Async prompt setup
+contains $async_prompt_functions left_context or set -U -a async_prompt_functions left_context
+contains $async_prompt_functions right_context or set -U -a async_prompt_functions right_context
+
 # Colors
 function orange
-    set_color -o ee5819
+	set_color -o ee5819
 end
 
 function yellow
-    set_color -o b58900
+	set_color -o b58900
 end
 
 function red
-    set_color -o d30102
+	set_color -o d30102
 end
 
 function cyan
-    set_color -o 2aa198
+	set_color -o 2aa198
 end
 
 function white
-    set_color -o fdf6e3
+	set_color -o fdf6e3
 end
 
 function dim
-    set_color -o 4f4f4f
+	set_color -o 4f4f4f
 end
 
 function off
-    set_color -o normal
+	set_color -o normal
 end
 
 # Git
@@ -58,11 +62,11 @@ end
 # Kubernetes
 
 function k8s::current_context
-    command kubectl config current-context
+	command kubectl config current-context
 end
 
 function k8s::current_namespace
-    command kubectl config view --minify -o jsonpath='{.contexts[0].context.namespace}'
+	command kubectl config view --minify -o jsonpath='{.contexts[0].context.namespace}'
 end
 
 # Terraform
