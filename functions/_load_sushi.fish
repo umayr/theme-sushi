@@ -29,13 +29,13 @@ end
 
 # Git
 function git::is_repo
-	test -d .git; or command git rev-parse --git-dir >/dev/null ^/dev/null
+	test -d .git; or command git rev-parse --git-dir >/dev/null 2>&1
 end
 
 function git::branch_name
 	git::is_repo; and begin
-		command git symbolic-ref --short HEAD ^/dev/null;
-		or command git show-ref --head -s --abbrev | head -n1 ^/dev/null
+		command git symbolic-ref --short HEAD 2>/dev/null;
+		or command git show-ref --head -s --abbrev | head -n1 2>/dev/null
 	end
 end
 
@@ -69,7 +69,7 @@ end
 
 # Test whether this is a terraform directory by finding .tf files
 function terraform::directory
-	command find . -name '*.tf' >/dev/null ^/dev/null -maxdepth 0
+	command find . -name '*.tf' >/dev/null 2>&1 -maxdepth 0
 end
 
 function terraform::workspace
